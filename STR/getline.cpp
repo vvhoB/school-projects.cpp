@@ -5,9 +5,11 @@ using namespace std;
 int main()
 {
     string sentence;
-    cout << "Wprowadz dowolne zdanie: ";
+    cout << "Enter a sentence: ";
     getline(cin, sentence);
-    cout << "Wprowadzone zdanie: " << sentence;
+    cout << "Your sentence: " << sentence;
 }
 
-//Shows the function of getline()
+//The program shows the function of getline()
+//It lets the user input an entire line of text
+//not only a single word, like cin does 
