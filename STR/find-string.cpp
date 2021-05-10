@@ -5,37 +5,37 @@ using namespace std;
 
 int main()
 {
-    cout << "Wprowadz zdanie: ";
-    char zdanie[1000];
-    cin.getline(zdanie, 1000);
-    cout << "Wprowadz wzorzec: ";
-    char wzorzec[50];
-    cin.getline(wzorzec,50);
-    int zdanie_dl = strlen(zdanie);
-    int wzorzec_dl = strlen(wzorzec);
-    int spacje=0;
-    for(int i=0; i<zdanie_dl; i++)
+    cout << "Enter a sentence: ";
+    char text[1000];
+    cin.getline(text, 1000);
+    cout << "Enter search phrase: ";
+    char search[50];
+    cin.getline(search,50);
+    int textlen = strlen(text);
+    int searchlen = strlen(search);
+    int spaces=0;
+    for(int i=0; i<textlen; i++)
     {
-        if(zdanie[i]==' ')
+        if(text[i]==' ')
         { 
-            for(int j=i; j<zdanie_dl; j++)
+            for(int j=i; j<textlen; j++)
             {    
-                zdanie[j]=zdanie[j+1];
+                text[j]=text[j+1];
             }       
-            spacje++;
+            spaces++;
         }    
     }
-    zdanie_dl-=spacje;
+    textlen-=spaces;
     int count=0;
-    char porownanie[wzorzec_dl];
-    for(int i=0; i<zdanie_dl; i++)
+    char comp[searchlen];
+    for(int i=0; i<textlen; i++)
     {
-        for(int j=0; j<wzorzec_dl; j++)
+        for(int j=0; j<searchlen; j++)
         {
-            porownanie[j]=zdanie[j+i];
+            comp[j]=text[j+i];
         }        
-        float if_equal = strcmp(porownanie, wzorzec);
+        float if_equal = strcmp(comp, search);
         if(if_equal==0) count++;
     }
-    cout << "W tekscie '" << wzorzec <<"' pojawia sie " << count <<" razy.";
+    cout << "In the text '" << search <<"' occured " << count <<" times.";
 }
